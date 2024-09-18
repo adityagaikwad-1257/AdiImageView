@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 
-    id("maven-publish")
+    id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
 android {
@@ -31,22 +31,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-
-    afterEvaluate{
-        publishing{
-            publications {
-                register<MavenPublication>("release"){
-                    groupId = "com.ag"
-                    artifactId = "adiimageview"
-                    version = "1.0"
-
-                    afterEvaluate {
-                        from(components["release"])
-                    }
-                }
-            }
-        }
     }
 }
 
