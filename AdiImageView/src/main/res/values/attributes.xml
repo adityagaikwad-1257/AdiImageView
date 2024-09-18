@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AdiImageView">
+        <attr name="imageCornerRadius" format="dimension"/>
+        <attr name="loadingBackground" format="color"/>
+        <attr name="errorSrc" format="reference"/>
+        <attr name="android:progressTintMode" format="color"/>
+        <attr name="srcCompat" format="reference"/>
+    </declare-styleable>
+</resources>
