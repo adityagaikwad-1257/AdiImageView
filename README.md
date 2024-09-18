@@ -1,5 +1,7 @@
 # AdiImageView
 
+![](https://github.com/adityagaikwad-1257/AdiImageView/blob/main/Preview.gif)
+
 AdiImageView is a custom ImageView for Android with a built-in loading indicator and simplified functions to load images from URLs or Android resources. It also supports setting corner radius, making it versatile for use as a circular image view.
 
 ## Features
