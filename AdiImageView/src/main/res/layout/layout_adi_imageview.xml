@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/adi_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/image"
+        android:src="@android:color/darker_gray"
         android:scaleType="fitXY"/>
 
     <ProgressBar
@@ -24,4 +25,4 @@
         android:indeterminateTint="@color/white"
         />
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

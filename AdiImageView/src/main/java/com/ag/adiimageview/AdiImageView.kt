@@ -10,14 +10,14 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.card.MaterialCardView
 
-class AdiImageView: FrameLayout {
+class AdiImageView : FrameLayout {
 
     // attributes
     private var cornerRadius: Int = 0
@@ -25,16 +25,18 @@ class AdiImageView: FrameLayout {
     private var errorSrc: Drawable? = AppCompatResources.getDrawable(context, R.drawable.img_error_src)
     private var progressTintMode: Int = context.getColor(android.R.color.white)
     private var srcDrawable: Drawable? = null
+    private var strokeColor: Int = 0
+    private var strokeWidth: Int = 0
 
     // views
     private var imageView: ImageView? = null
     private var progressView: ProgressBar? = null
-    private var cardView: CardView? = null
+    private var cardView: MaterialCardView? = null
 
     constructor(context: Context?) : super(context!!)
     constructor(context: Context?, attrs: AttributeSet?) : super(
         context!!, attrs
-    ){
+    ) {
         setAttributes(attrs)
     }
 
@@ -44,13 +46,16 @@ class AdiImageView: FrameLayout {
         setAttributes(attrs)
     }
 
-    private fun setAttributes(attrs: AttributeSet?){
+    private fun setAttributes(attrs: AttributeSet?) {
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.AdiImageView)
 
         cornerRadius = attributes.getDimensionPixelSize(R.styleable.AdiImageView_imageCornerRadius, 0)
         errorSrc = attributes.getDrawable(R.styleable.AdiImageView_errorSrc)
         progressTintMode = attributes.getColor(R.styleable.AdiImageView_android_progressTintMode, progressTintMode)
         srcDrawable = attributes.getDrawable(R.styleable.AdiImageView_srcCompat)
+
+        strokeColor = attributes.getColor(R.styleable.AdiImageView_strokeColor, strokeColor)
+        strokeWidth = attributes.getDimensionPixelSize(R.styleable.AdiImageView_strokeWidth, strokeWidth)
 
         inflateView()
 
@@ -66,18 +71,24 @@ class AdiImageView: FrameLayout {
 
         progressView?.indeterminateTintList = ColorStateList.valueOf(progressTintMode)
         cardView?.radius = cornerRadius.toFloat()
-        imageView?.setImageDrawable(srcDrawable)
+
+        srcDrawable?.let {
+            imageView?.setImageDrawable(srcDrawable)
+        }
+
+        cardView?.strokeWidth = strokeWidth
+        cardView?.strokeColor = strokeColor
     }
 
-    fun loadImage(@DrawableRes resId: Int){
+    fun loadImage(@DrawableRes resId: Int) {
         imageView?.setImageResource(resId)
     }
 
-    fun loadImage(drawable: Drawable?){
+    fun loadImage(drawable: Drawable?) {
         imageView?.setImageDrawable(drawable)
     }
 
-    fun loadImage(uri: Uri){
+    fun loadImage(uri: Uri) {
         imageView?.setImageURI(uri)
     }
 
