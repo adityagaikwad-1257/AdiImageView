@@ -14,7 +14,7 @@ AdiImageView is a custom ImageView for Android with a built-in loading indicator
 Add the following dependency in your `build.gradle` file:
 
 ```groovy
-implementation("io.github.adityagaikwad-1257:adiimageview:1.0.0")
+implementation("io.github.adityagaikwad-1257:adiimageview:1.0.1")
 ```
 
 ## Usages in layouts
