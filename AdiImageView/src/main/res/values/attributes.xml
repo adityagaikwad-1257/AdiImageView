@@ -6,5 +6,8 @@
         <attr name="errorSrc" format="reference"/>
         <attr name="android:progressTintMode" format="color"/>
         <attr name="srcCompat" format="reference"/>
+
+        <attr name="strokeColor" format="color"/>
+        <attr name="strokeWidth" format="dimension"/>
     </declare-styleable>
 </resources>
